@@ -1,0 +1,25 @@
+name : deployment exercise
+
+on : push 
+
+jobs :
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name : Get code 
+        uses: actions/checkout@v4.2.2
+
+      - name: Setup node 
+        uses: actions/setup-node@v4.3.0
+        with : 
+          node-version: '18'
+       
+      - name: Lint
+        run: npm run lint
+
+      - name: build code 
+        run : npm run build
+        
+      - name: Test code
+        run: npm run test
+        
