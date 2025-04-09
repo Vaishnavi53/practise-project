@@ -15,10 +15,13 @@ jobs :
         
       - name: Lint
         run: npm run lint
-
+        working-directory: '04 Practice Project (Start)'
+        
       - name: build code 
         run : npm run build
+        working-directory: '04 Practice Project (Start)'
         
       - name: Test code
         run: npm run test
+        working-directory: '04 Practice Project (Start)'
         
