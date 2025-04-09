@@ -11,7 +11,7 @@ jobs :
      
       - name: Install dependencies
         run: npm install
-        
+        working-directory: '04 Practice Project (Start)'
         
       - name: Lint
         run: npm run lint
