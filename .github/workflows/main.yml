@@ -1,6 +1,9 @@
 name: Hnadle issues
 
-on: issues
+on: 
+  pull_request: 
+    types: 
+      - opened 
 
 jobs: 
   output-info: 
