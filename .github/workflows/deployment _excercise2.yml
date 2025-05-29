@@ -3,12 +3,11 @@ name: Deployment Excercise 2
 on: push
 
 jobs:
-
-
   deploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name : Get code 
+      - name: Get code 
         uses: actions/checkout@v4.2.2
      
       - name: Install dependencies
@@ -19,10 +18,13 @@ jobs:
         run: npm run lint
         working-directory: '04 Practice Project (Start)'
         
-      - name: build code 
+      - name: Build code 
         run : npm run build
         working-directory: '04 Practice Project (Start)'
         
       - name: Test code
         run: npm run test
         working-directory: '04 Practice Project (Start)'
+
+      - name: Use secret password
+        run: echo "My password is ${{ secrets.MY_PASSWORD }}"
