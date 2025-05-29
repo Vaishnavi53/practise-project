@@ -1,4 +1,4 @@
-name: Deployment Excercise 2
+name: Deployment Exercise 2
 
 on: push
 
@@ -13,15 +13,25 @@ jobs:
       - name: Install dependencies
         run: npm install
         working-directory: '04 Practice Project (Start)'
-        
+
+      - name: Inject secret into .env file
+        run: echo "VITE_APP_PASSWORD=${{ secrets.MY_PASSWORD }}" > .env
+        working-directory: '04 Practice Project (Start)'
+
+      - name: Log secret for debug
+        run: |
+          echo "Logging from env file"
+          cat .env
+        working-directory: '04 Practice Project (Start)'
+
       - name: Lint
         run: npm run lint
         working-directory: '04 Practice Project (Start)'
-        
+
       - name: Build code 
         run : npm run build
         working-directory: '04 Practice Project (Start)'
-        
+
       - name: Test code
         run: npm run test
         working-directory: '04 Practice Project (Start)'
@@ -34,5 +44,5 @@ jobs:
             echo "✅ Secret is SET"
           fi
         env:
-         SECRET: ${{ secrets.MY_PASSWORD }}
+          SECRET: ${{ secrets.MY_PASSWORD }}
 
