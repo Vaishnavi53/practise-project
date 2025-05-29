@@ -33,6 +33,6 @@ jobs:
           else
             echo "✅ Secret is SET"
           fi
-          env:
-            SECRET: ${{ secrets.MY_PASSWORD }}
-  
+        env:
+         SECRET: ${{ secrets.MY_PASSWORD }}
+
