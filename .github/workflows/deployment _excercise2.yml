@@ -26,5 +26,13 @@ jobs:
         run: npm run test
         working-directory: '04 Practice Project (Start)'
 
-      - name: Use secret password
-        run: echo "My password is ${{ secrets.MY_PASSWORD }}"
+      - name: Check if secret exists
+        run: |
+          if [ -z "${SECRET}" ]; then
+            echo "❌ Secret is EMPTY"
+          else
+            echo "✅ Secret is SET"
+          fi
+          env:
+            SECRET: ${{ secrets.MY_PASSWORD }}
+  
